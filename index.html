@@ -46,9 +46,7 @@
   </style>
 </head>
 
-<body>
-  <div onclick="openModal()" class="trigger"></div>
-
+<body onload="openModal()">
   <div class="modal" id="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="close" onclick="closeModal()">×</div>
