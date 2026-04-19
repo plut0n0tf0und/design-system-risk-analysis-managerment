@@ -2,26 +2,44 @@
 <html>
 <head>
   <style>
-    body { margin:0; font-family:sans-serif; }
-    button { padding:10px 16px; cursor:pointer; }
+    body { margin:0; font-family:sans-serif; min-height:100vh; }
+
+    .trigger {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      cursor:pointer;
+    }
 
     .modal {
       display:none;
       position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.6);
+      inset:0;
+      width:100vw;
+      height:100vh;
+      background:rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      z-index:9999;
     }
 
     .modal-content {
-      position:absolute;
-      top:50%; left:50%;
-      transform:translate(-50%, -50%);
-      width:90%;
-      height:80%;
+      position:relative;
+      width:100vw;
+      height:100vh;
       background:#fff;
-      border-radius:12px;
+      border-radius:0;
       overflow:hidden;
+    }
+
+    .close {
+      position:absolute;
+      top:20px;
+      right:25px;
+      font-size:28px;
+      color:white;
+      cursor:pointer;
+      z-index:10000;
     }
 
     iframe { width:100%; height:100%; border:none; }
@@ -29,10 +47,11 @@
 </head>
 
 <body>
-  <button onclick="openModal()">Open Design</button>
+  <div onclick="openModal()" class="trigger"></div>
 
   <div class="modal" id="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="close" onclick="closeModal()">×</div>
       <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/8klTUHwt1pgh5OAjtWIlVo/Bento-Dashboard?node-id=1999-83424"></iframe>
     </div>
   </div>
