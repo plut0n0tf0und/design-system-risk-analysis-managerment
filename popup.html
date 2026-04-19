@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin:0; font-family:sans-serif; }
+    button { padding:10px 16px; cursor:pointer; }
+
+    .modal {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%, -50%);
+      width:90%;
+      height:80%;
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+    iframe { width:100%; height:100%; border:none; }
+  </style>
+</head>
+
+<body>
+  <button onclick="openModal()">Open Design</button>
+
+  <div class="modal" id="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/8klTUHwt1pgh5OAjtWIlVo/Bento-Dashboard?node-id=1999-83424"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
